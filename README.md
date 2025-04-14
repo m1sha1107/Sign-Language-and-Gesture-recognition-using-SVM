@@ -95,7 +95,7 @@ python capture.py
 3. Run the preprocessing script to extract features.
 4. Retrain the SVM model using `train_svm.py`.
 
-##Collaborators
+## Collaborators
 1. Misha N Devegowda - m1sha1107
 2. Nikhita K Nagavar
 3. Spandana Sujay
