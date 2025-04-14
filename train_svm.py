@@ -6,8 +6,6 @@ import joblib
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Ensure the training script is tailored to image data and not sequences
-# Removed any references to sequences and clarified that each image is treated independently
 
 # Load processed data
 def load_all_data():
@@ -47,7 +45,6 @@ def train_svm(features, labels):
 
     return svm
 
-# Save the trained model with a custom filename
 def save_model(model, filename="svm_model1.joblib"):
     joblib.dump(model, filename)
     print(f"Model saved to {filename}")

@@ -55,7 +55,7 @@ def prepare_specific_datasets():
         all_data.append(data)
         all_labels.append(labels)
 
-    # Check for empty datasets before concatenation
+    # Checks for empty datasets before concatenation
     all_data = [data for data in all_data if data.size > 0]
     all_labels = [labels for labels in all_labels if labels.size > 0]
 
