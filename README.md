@@ -96,9 +96,9 @@ python capture.py
 4. Retrain the SVM model using `train_svm.py`.
 
 ##Collaborators
-1.Misha N Devegowda - m1sha1107
-2.Nikhita K Nagavar
-3.Spandana Sujay
+1. Misha N Devegowda - m1sha1107
+2. Nikhita K Nagavar
+3. Spandana Sujay
 
 ## Acknowledgments
 - **MediaPipe**: For hand landmark detection.
