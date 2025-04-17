@@ -3,14 +3,14 @@ import mediapipe as mp
 import joblib
 import numpy as np
 
-# Load the trained SVM model
+#loading the model :)
 model = joblib.load("svm_model1.joblib")
 
 # Initialize MediaPipe Hands
 mp_hands = mp.solutions.hands
-hands = mp_hands.Hands(static_image_mode=False, max_num_hands=1, min_detection_confidence=0.5)
+hands = mp_hands.Hands(static_image_mode=False, max_num_hands=1, min_detection_confidence=0.5) #IMAGES ARE NOT STATIC HERE!!
 
-# Function to extract landmarks from a frame
+#landmark extraction function
 def extract_landmarks_from_frame(frame):
     frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     results = hands.process(frame_rgb)
@@ -20,7 +20,7 @@ def extract_landmarks_from_frame(frame):
         return np.array([[lm.x, lm.y, lm.z] for lm in landmarks.landmark]).flatten()
     return None
 
-# Start webcam feed
+#prediction
 def real_time_prediction():
     cap = cv2.VideoCapture(0)
 
@@ -32,17 +32,16 @@ def real_time_prediction():
         # Extract landmarks
         landmarks = extract_landmarks_from_frame(frame)
 
-        if landmarks is not None:
-            # Predict the sign
+        if landmarks is not None: #prediction
             prediction = model.predict([landmarks])[0]
 
-            # Display the prediction on the frame
+            # Displaying the prediction
             cv2.putText(frame, f"Prediction: {prediction}", (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
 
-        # Show the frame
+        
         cv2.imshow("Sign Language Recognition", frame)
 
-        # Break on 'q' key press
+        
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
